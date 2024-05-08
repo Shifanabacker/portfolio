@@ -1,0 +1,787 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat&display=swap");
+
+:root {
+  --primary-color: yellow;
+  --secondary-color: black;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--secondary-color);
+}
+/* Default styles for header and navigation */
+header {
+  background-color: #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 20px; /* Increase the top spacing */
+  left: 20px; /* Increase the left spacing */
+  right: 40px; /* Increase the right spacing */
+  z-index: 1000;
+  padding: 10px 25px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar ul.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.navbar ul.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.3s ease, font-size 0.3s ease; /* Add transition for smooth effect */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+.navbar ul.nav-links li a:hover {
+  transform: scale(1.1); /* Enlarge the item on hover */
+  font-size: 1.1em; /* Increase font size on hover */
+  color: yellow;
+}
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 10px 15px; /* Adjust padding for smaller screens */
+  }
+
+  .navbar {
+    position: relative;
+  }
+
+  .navbar .menu-icon {
+    position: absolute;
+    left: 10px; /* Adjust the left spacing */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+  }
+
+  .navbar ul.nav-links {
+    display: none; /* Hide the navigation links by default on smaller screens */
+    flex-direction: column; /* Stack the navigation links vertically */
+    gap: 10px; /* Adjust the gap between links */
+    position: absolute;
+    left: 0; /* Center horizontally */
+    right: 0;
+    top: calc(100% + 30px); /* Position below the menu bar */
+
+    transform: translateX(-50%); /* Center horizontally */
+    background-color: #000000;
+    padding: 20px 0;
+    text-align: center;
+    left: calc(50% - 150px); /* Change 150px to adjust the spacing */
+    width: 100vw; /* Set width to viewport width */
+    max-width: none; /* Remove max-width */
+  }
+
+  .navbar ul.nav-links li {
+    margin: 0; /* Remove default margin */
+  }
+
+  .navbar ul.nav-links li a {
+    font-size: 1.2em; /* Adjust font size */
+  }
+
+  .menu-icon.active + nav ul.nav-links {
+    display: flex; /* Display the navigation links when the menu is active */
+  }
+}
+
+
+
+
+/* Add padding to the body to prevent content from being hidden behind the fixed header */
+body {
+  padding-top: 70px; /* Adjust as necessary based on the height of your header */
+}
+
+/* Styles for the home section */
+#home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55vh; /* Increase the height of the home section */
+  margin-top: 100px; /* Increase the top margin to create more space */
+  background-color: black;
+}
+
+.intro h2 {
+  font-size: 34px;
+  animation-name: fallFromTop; /* Define the name of the animation */
+  animation-duration: 2s; /* Set the duration of the animation */
+  animation-timing-function: ease-out; /* Set the timing function for the animation */
+}
+
+@keyframes fallFromTop {
+  from {
+    transform: translateY(-500%); /* Move the element 100% (its own height) upwards */
+    opacity: 10; /* Start with opacity 0 */
+  }
+  to {
+    transform: translateY(0); /* Move the element to its current position */
+    opacity: 20; /* Show the element with full opacity */
+  }
+}
+
+.container {
+  text-align: center;
+}
+.intro {
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  padding: 30px; /* Adjust padding as needed */
+  box-sizing: border-box; /* Include padding in the width calculation */
+  margin-top: 40px;
+}
+
+
+
+.intro p {
+  font-size: 3rem;
+  background-color: black; /* Background color */
+  color: yellow;
+  font-weight: bold;
+  font-family: monospace;
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 10px 20px; /* Padding around text */
+  text-decoration: none; /* Remove underline */
+  border-radius: 25px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgb(235, 235, 86); /* Darker color on hover */
+  transform: scale(1.1); /* Enlarge on hover */
+}
+
+.social-media {
+  margin-top: 80px; /* Adjust margin as needed */
+  background-color: yellow;
+  color: black;
+  padding: 20px; /* Adjust padding as needed */
+}
+
+.social-media ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center; /* Center align the list items */
+
+  color: black;
+}
+
+.social-media ul li {
+  display: inline-block;
+  margin-right: 15px; /* Adjust margin between social media icons */
+  color: black;
+  text-align: center; /* Center align the list items */
+  width: 200px; /* Set a fixed width for each list item */
+}
+
+.social-media ul li:last-child {
+  margin-right: 0; /* Remove margin from the last social media icon */
+  color: black;
+}
+
+.social-media ul li a {
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition effect */
+}
+.social-media ul li a:hover {
+  transform: scale(1.1); /* Enlarge on hover */
+}
+#about {
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center;
+  padding: 50px 0;
+  background-color: var(--secondary-color);
+  border: 2px solid yellow;
+}
+
+#about .about-content {
+  max-width: 900px;
+  padding: 0 20px;
+  text-align: center; /* Center the text within the content wrapper */
+}
+
+#about .about-content p {
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgb(215, 215, 56);
+  margin-bottom: 20px;
+  text-align: center; /* Center the text within the paragraph */
+}
+
+#about h2 {
+  text-align: center;
+  font-size: 36px;
+  color: yellow;
+  font-family: monospace;
+  margin-bottom: 70px;
+}
+
+#about .content-wrapper {
+  text-align: left;
+}
+
+.contact-button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 10px 20px; /* Padding around text */
+  text-decoration: none; /* Remove underline */
+  border-radius: 25px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  font-weight: bold;
+
+  display: block;
+  margin: 20px auto; /* Adjust margin as needed */
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.contact-button:hover {
+  background-color: rgb(235, 235, 86); /* Darker color on hover */
+  transform: scale(1.1); /* Enlarge on hover */
+}
+
+#services {
+  padding: 50px 0;
+  background-color: var(--secondary-color);
+  border: 2px solid yellow;
+}
+
+#services h2 {
+  text-align: center;
+  font-size: 32px;
+  color: yellow;
+  font-family: monospace;
+  margin-bottom: 70px;
+}
+
+.service-container {
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+.service {
+  width: calc(33.33% - 20px); /* Adjusted width for responsiveness */
+  margin: 0 10px;
+  background-color: black;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border: 6px solid grey; /* Set default border color to grey */
+  border-radius: 20px;
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack children vertically */
+  transition: border-color 0.3s; /* Add transition for smooth hover effect */
+}
+
+.service:hover {
+  border-color: yellow; /* Change border color to yellow on hover */
+}
+
+.service h3 {
+  font-size: 24px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+.service p {
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+  line-height: 1.6;
+  text-align: center;
+}
+
+#portfolio {
+  text-align: center;
+  padding: 50px 0;
+  background-color: black;
+  border: 2px solid yellow;
+}
+
+#portfolio h2 {
+  font-size: 2em;
+  color: yellow;
+  margin-bottom: 70px;
+}
+
+#portfolio p {
+  padding: 10px;
+  font-size: 1.2em;
+  margin-bottom: 50px;
+}
+
+#portfolio .btn {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 10px 20px; /* Padding around text */
+  text-decoration: none; /* Remove underline */
+  border-radius: 25px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#portfolio .btn:hover {
+  background-color: rgb(235, 235, 86); /* Darker color on hover */
+  transform: scale(1.1); /* Enlarge on hover */
+}
+
+#contact {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: black;
+  padding: 50px;
+}
+
+.contact-info,
+.contact-form {
+  flex: 1;
+  margin: 0 10px;
+}
+.contact-info {
+  margin-left: 40px;
+}
+.contact-info a {
+  color: inherit; /* Inherit color from parent */
+  text-decoration: none; /* Remove underline */
+}
+
+.contact-info h2 {
+  color: yellow;
+  font-size: 24px;
+  margin-top: 100px; /* Adjusted margin-top */
+}
+
+.contact-info h4 {
+  color: #d2d1d1;
+  font-size: 16px;
+  margin-top: 20px; /* Adjusted margin-top */
+}
+
+.contact-info p {
+  color: #d2d1d1;
+  font-size: 16px;
+  margin-top: 10px; /* Adjusted margin-top */
+}
+/* Reset default form styles */
+form {
+  width: 600px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+/* Style form container */
+.input-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.field .item{
+  width: 100%;
+  padding: 18px;
+  background: transparent;
+  border: 2px solid yellow;
+  outline: none;
+  border-radius: 6px;
+  color: white;
+  margin: 10px 0;
+}
+
+.field.error .item{
+  border-color: rgb(143, 0, 0);
+}
+
+.field.error .error-txt{
+  display: block;
+}
+
+.input-field {
+ width: 48.5%;
+}
+
+.textarea-field .item {
+  resize: none;
+}
+
+.textarea-field {
+  margin-bottom: 15px;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.textarea-field .error-txt{
+  margin-top: -10px;
+
+}
+
+
+.field .error-txt{
+  font-size: 14.5px;
+  color: rgb(138, 19, 19);
+  text-align: left;
+  margin: -5px 0 10px;
+display: none;
+
+}
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 600px) {
+  form {
+    width: 100%;
+    max-width: none; /* Remove max-width for smaller screens */
+  }
+
+  .input-box {
+    flex-direction: column; /* Stack fields vertically */
+  }
+
+  .field {
+    width: 100%; /* Make fields full width */
+  }
+
+  .item {
+    width: calc(100% - 20px); /* Adjust width for smaller screens */
+  }
+}
+
+
+button {
+  padding: 12px 32px;
+  background: yellow;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px yellow;
+  font-size: 16px;
+  color:black;
+  cursor: pointer;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  font-family: monospace;
+  margin-left: auto; /* Center the button horizontally */
+  margin-right: auto; /* Center the button horizontally */
+  display: block; /* Ensure the button takes full width of its container */
+}
+
+
+button:hover {
+  box-shadow: none;
+   
+}
+
+
+.footer-logo {
+  display: block;
+  margin-bottom: 30px; /* Adjust spacing between sections as needed */
+}
+
+/* Logo style */
+.footer-logo img {
+  max-width: 100px; /* Adjust max-width of the logo as needed */
+  height: auto;
+}
+.footer-social {
+  margin-bottom: 40px; /* Adjust spacing between sections as needed */
+}
+/* Social media icon list style */
+.footer-social ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Center the icons horizontally */
+}
+
+.footer-social ul li {
+  margin-right: 40px; /* Adjust the gap between icons */
+}
+
+.footer-social ul li:last-child {
+  margin-right: 0;
+}
+
+.footer-social ul li a {
+  color: yellow;
+  text-decoration: none;
+}
+
+.footer-line {
+  border-bottom: 1px solid yellow; /* Adjust border color and style as needed */
+  margin-bottom: 20px; /* Adjust margin as needed */
+}
+
+/* Copyright notice style */
+.footer-copy p {
+  margin: 0; /* Remove default margin for the paragraph */
+  font-size: 14px; /* Adjust font size of the copyright notice as needed */
+  color: yellow; /* Adjust color of the copyright notice as needed */
+}
+
+section {
+  padding: 2em;
+  background-color: #333; /* Dark background for sections */
+  margin: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+}
+.whatsapp-icon {
+  position: fixed;
+  bottom: 20px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
+  z-index: 9999; /* Ensure it's above other content */
+  background-color: #25d366; /* WhatsApp brand color */
+  color: #fff; /* Icon color */
+  width: 50px; /* Adjust icon size */
+  height: 50px; /* Adjust icon size */
+  border-radius: 50%; /* Make it circular */
+  text-align: center;
+  line-height: 50px; /* Center icon vertically */
+  font-size: 24px; /* Adjust icon size */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+  transition: all 0.3s ease; /* Add smooth transition */
+}
+
+.whatsapp-icon:hover {
+  background-color: #128c7e; /* Darker color on hover */
+  width: 60px; /* Increase icon size on hover */
+  height: 60px; /* Increase icon size on hover */
+  line-height: 60px; /* Center icon vertically on hover */
+}
+
+.whatsapp-icon::after {
+  content: "WhatsApp Me"; /* Add text */
+  font-size: 12px; /* Adjust text size */
+  display: block;
+  margin-top: 5px; /* Adjust spacing between icon and text */
+}
+
+.whatsapp-icon:hover::after {
+  content: "WhatsApp Me"; /* Change text on hover */
+}
+
+footer {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  text-align: center;
+  padding: 1em;
+  border: 5px solid yellow;
+  border-radius: 10px;
+}
+
+/* For smaller screens */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  /* Adjust padding and font size for intro section */
+  .intro {
+    padding: 20px;
+  }
+
+  .intro h2 {
+    font-size: 1.5rem;
+  }
+
+  .intro p {
+    font-size: 2rem;
+  }
+
+  /* Adjust margin for social media icons */
+  .social-media ul li {
+    margin-right: 10px;
+  }
+
+  /* Set a percentage width for each social media icon */
+  .social-media ul li {
+    width: 25%;
+  }
+  #about {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: center; /* Center align items on smaller screens */
+  }
+
+  #about .about-content {
+    order: 2; /* Change order to display content after image on smaller screens */
+  }
+
+  #about .about-content p {
+    text-align: center;
+  }
+
+  #contact {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .contact-info,
+  .contact-form {
+    margin: 20px 0;
+    max-width: 100%;
+  }
+
+  .contact-info {
+    margin-left: 0;
+  }
+
+  .contact-form {
+    margin-right: 0;
+  }
+  .service-container {
+    justify-content: center;
+    align-items: center;
+  }
+  .service {
+    width: calc(50% - 20px); /* Two services per row */
+  }
+}
+
+@media (max-width: 576px) {
+  .service {
+    width: calc(100% - 20px); /* Adjusted width for even smaller screens */
+  }
+}
+
+/* For even smaller screens */
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 12px; /* Further adjust font size */
+  }
+
+  /* Adjust padding for intro section */
+  .intro {
+    padding: 15px;
+  }
+
+  .intro h2 {
+    font-size: 1.2rem;
+  }
+
+  .intro p {
+    font-size: 1.5rem;
+  }
+  #about h2 {
+    font-size: 24px;
+  }
+
+  #about .about-content {
+    padding: 0 10px;
+  }
+  .service {
+    width: calc(100% - 20px); /* One service per row */
+  }
+}
+
+
+
+
+
+
+/* Add specific styles for the portfolio section */
+#portfolio {
+  padding: 50px 0;
+  background-color: var(--secondary-color);
+  border: 2px solid yellow;
+}
+
+#portfolio h2 {
+  text-align: center;
+  font-size: 32px;
+  color: yellow;
+  font-family: monospace;
+  margin-bottom: 70px;
+}
+
+.portfolio-gallery {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+.portfolio-item {
+  width: calc(33.33% - 20px); /* Three items per row */
+  margin: 10px; /* Small gap between items */
+}
+
+.portfolio-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.portfolio-item .scroll-to-top {
+  display: block;
+  text-align: center;
+  background-color: yellow;
+  color: black;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+.portfolio-item .scroll-to-top:hover {
+  background-color: rgb(243, 243, 79);
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .portfolio-item {
+      width: calc(50% - 20px); /* Two items per row on smaller screens */
+  }
+}
+
+@media (max-width: 576px) {
+  .portfolio-item {
+      width: calc(100% - 20px); /* Adjusted width for even smaller screens */
+  }
+}
